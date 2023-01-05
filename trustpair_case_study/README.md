@@ -1,8 +1,47 @@
 # Trustpair - Case Study Terraform + AWS
 
+## Note
+
+- Cet infrastructure a été déployé et testée via [LocalStack](https://localstack.cloud/) pour éviter tout facturation pendant les tests
+- La commande [tflocal](https://docs.localstack.cloud/user-guide/integrations/terraform/#using-the-tflocal-script) est identique au CLI terraform mais permet de déployer automatique l'infrastructure vers les endpoints locaux (conteneur docker sur mon poste) de LocalStack
+
+## Architecture
+
+### Réseau
+- 1 VPC
+- 6 subnets (3 privés, 3 publiques)
+- 1 internet gateway
+- 3 public routes (1/chaque public subnet)
+- 3 NAT gateway (1/chaque public subnet)
+- 6 routes (3 privées/3 publiques)
+- 6 routes association (3 privées/3 publiques)
+- 3 EIP (1/chaque NAT gateway)
+
+### Ressources AWS
+- 1 Bucket (testé pour déployer zip lambda depuis bucket)
+- 1 lambda (API python avec FastAPI)
+- 1 API Gateway (branchée sur le lambda)
+- 1 Cognito
+
+### API
+#### Exposée via API Gateway
+
+- 1 endpoint HTTP GET (/)
+- 1 endpoint HTTP POST (/api/v1/trustpair) qui requiert le body suivant:
+```
+{
+    "name": "blabla",
+    "description": "blabla)"
+}
+```
+### Monitoring
+
+- 1 Cloudwatch log group qui récupère les logs du Lambda
+- 1 Cloudwatch alarm mais qui ne fonctionne pas :( (pas de data reçue)
+
 ## Flow DEMO
 
-1. sourcer venv pour executer awslocal
+1. sourcer venv pour pouvoir executer tflocal/awslocal
 
 ```source venv/bin/activate**```
 
