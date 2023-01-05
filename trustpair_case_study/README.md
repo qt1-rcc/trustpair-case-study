@@ -2,7 +2,7 @@
 
 ## Note
 
-- Cet infrastructure a été déployé et testée via [LocalStack](https://localstack.cloud/) pour éviter tout facturation pendant les tests
+- Cette infrastructure a été déployé et testée via [LocalStack](https://localstack.cloud/) pour éviter tout facturation pendant les tests
 - La commande [tflocal](https://docs.localstack.cloud/user-guide/integrations/terraform/#using-the-tflocal-script) est identique au CLI terraform mais permet de déployer automatique l'infrastructure vers les endpoints locaux (conteneur docker sur mon poste) de LocalStack
 
 ## Architecture
@@ -78,8 +78,8 @@ curl --location --request POST 'http://localhost:4566/eu-west-1_e75d8d15edd14a95
 
 ## Résumé des accès
 
-Avec avec/sans access_token (GET) = OK
+Avec/sans access_token (GET) = OK
 
-Avec avec access_token (POST) = OK
+Avec access_token (POST) = OK
 
-Avec sans access_token (POST) = NOK
+Sans access_token (POST) = NOK
