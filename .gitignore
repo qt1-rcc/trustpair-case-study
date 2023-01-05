@@ -1,0 +1,6 @@
+# Ignore python virtual env
+env/
+venv/
+
+# Ignore localstack volume folder
+volume/
