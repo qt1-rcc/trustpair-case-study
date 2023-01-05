@@ -7,5 +7,5 @@ services:
       - "127.0.0.1:4566:4566"            # LocalStack Gateway
       - "127.0.0.1:4510-4559:4510-4559"  # external services port range
     environment:
-      - LOCALSTACK_API_KEY=2IPcTiGbDq
+      - LOCALSTACK_API_KEY=XXXXXXX
       - DOCKER_HOST=unix:///var/run/docker.sock #--Linux hosts, if you're using Windows see https://docs.docker.com/desktop/faqs/#how-do-i-connect-to-the-remote-docker-engine-api
