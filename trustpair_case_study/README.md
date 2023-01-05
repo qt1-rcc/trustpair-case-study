@@ -27,7 +27,7 @@
 #### Exposée via API Gateway
 
 - 1 endpoint HTTP GET (/)
-- 1 endpoint HTTP POST (/api/v1/trustpair) qui requiert le body suivant:
+- 1 endpoint HTTP POST (/api/v1/trustpair) qui requiert un token obtenu par authentification auprès de cognito **et** le body suivant:
 ```
 {
     "name": "blabla",
